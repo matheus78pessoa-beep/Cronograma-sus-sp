@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plano SUS-SP + Step 1</title>
+<style>
+:root{--bg:#f4f6fb;--card:#fff;--ink:#172033;--muted:#64748b;--line:#e2e8f0;--blue:#315be8;--blue2:#eaf0ff;--green:#16845b;--orange:#b96a13;--shadow:0 8px 28px #1720330b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{background:linear-gradient(120deg,#172554,#315be8);color:white;padding:28px 18px 24px}header .wrap,main{max-width:1120px;margin:auto}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.12em;opacity:.8}h1{font-size:clamp(25px,4vw,36px);line-height:1.15;margin:7px 0}header p{max-width:720px;color:#e3eaff;margin:8px 0 0}
+main{padding:20px 16px 50px}.nav{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}.nav button{border:1px solid var(--line);background:white;color:var(--ink);border-radius:999px;padding:9px 14px;cursor:pointer;font-weight:650}.nav button.active{background:var(--blue);color:white;border-color:var(--blue)}
+.panel{display:none}.panel.active{display:block}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.stat,.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow)}.stat .num{font-size:28px;font-weight:800;letter-spacing:-.03em}.muted{color:var(--muted)}.small{font-size:12px}.progress{height:8px;background:#e8edf5;border-radius:99px;overflow:hidden;margin-top:9px}.progress span{display:block;height:100%;background:var(--blue);width:0;transition:width .2s}.section-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:22px 0 10px}.section-title h2{font-size:20px;margin:0}.two{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}.topic-group{margin:10px 0;background:white;border:1px solid var(--line);border-radius:14px;overflow:hidden}.group-head{display:flex;justify-content:space-between;align-items:center;padding:13px 15px;cursor:pointer;font-weight:750}.group-head small{font-weight:500;color:var(--muted)}.topic-list{padding:0 14px 10px;border-top:1px solid var(--line)}.topic{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #eef1f6}.topic:last-child{border-bottom:0}.topic input[type=checkbox]{margin-top:5px;width:17px;height:17px;accent-color:var(--green);flex-shrink:0}.topic.done .topic-name{text-decoration:line-through;color:var(--muted)}.topic-name{font-size:14px}.tag{font-size:11px;border-radius:999px;background:var(--blue2);color:#2344b5;padding:3px 8px;white-space:nowrap}.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.field{display:flex;flex-direction:column;gap:5px;margin:8px 0}.field label{font-size:13px;font-weight:700}.field input,.field textarea,.field select{width:100%;border:1px solid #cbd5e1;border-radius:10px;padding:10px 11px;background:white;color:var(--ink);font:inherit}.field textarea{min-height:78px;resize:vertical}.btn{border:0;border-radius:10px;padding:10px 14px;font-weight:750;cursor:pointer;background:var(--blue);color:white}.btn.secondary{background:#edf1f8;color:#26334b}.btn.danger{background:#fff0f0;color:#a12626}.btn:disabled{opacity:.45;cursor:not-allowed}.checkline{display:flex;gap:9px;align-items:flex-start;padding:9px 0}.checkline input{margin-top:5px;accent-color:var(--green)}.day-card{border:1px solid var(--line);background:white;border-radius:14px;padding:14px;margin:10px 0}.day-card h3{margin:0 0 5px;font-size:16px}.day-card p{margin:4px 0}.badge{display:inline-block;padding:3px 8px;border-radius:999px;font-size:11px;font-weight:800;background:#fef3c7;color:#854d0e}.badge.fixed{background:#fee2e2;color:#991b1b}.empty{padding:18px;text-align:center;color:var(--muted)}.footer{margin-top:24px;color:var(--muted);font-size:12px}.hidden{display:none!important}
+@media(max-width:760px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.two{grid-template-columns:1fr}.stat{padding:13px}.stat .num{font-size:24px}.section-title{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><div class="eyebrow">Seu painel de preparação</div><h1>SUS-SP + USMLE Step 1</h1><p>16 de outubro a 13 de dezembro de 2026 · Conteúdos, rotina diária, simulados e recuperação de atrasos em um só lugar.</p></div></header>
+<main>
+<div class="nav">
+<button class="active" data-tab="painel">Visão geral</button><button data-tab="conteudos">Conteúdos</button><button data-tab="hoje">Plano do dia</button><button data-tab="simulados">Simulados</button><button data-tab="backup">Backup e ajustes</button>
+</div>
+<section id="painel" class="panel active">
+<div class="grid">
+<div class="stat"><div class="muted small">Conteúdos concluídos</div><div class="num" id="statTopics">0/58</div><div class="progress"><span id="topicBar"></span></div></div>
+<div class="stat"><div class="muted small">Progresso geral</div><div class="num" id="statPercent">0%</div><div class="muted small">Baseado nas caixas marcadas</div></div>
+<div class="stat"><div class="muted small">Dias até a prova</div><div class="num" id="statDays">58</div><div class="muted small">Prova: 13/12/2026</div></div>
+<div class="stat"><div class="muted small">Rotina de hoje</div><div class="num" id="statRoutine">0/3</div><div class="muted small">SUS-SP · Anki · UWorld</div></div>
+</div>
+<div class="section-title"><h2>Progresso por disciplina</h2><span class="muted small">Atualiza automaticamente</span></div>
+<div id="subjectProgress"></div>
+<div class="two">
+<div class="card"><h2>Próximas datas fixas</h2><div class="day-card"><span class="badge fixed">SIMULADO</span><h3>22/11/2026</h3><p class="muted">Simulado 1 · Diagnóstico</p></div><div class="day-card"><span class="badge fixed">SIMULADO</span><h3>29/11/2026</h3><p class="muted">Simulado 2 · Corrigir rota</p></div><div class="day-card"><span class="badge fixed">SIMULADO</span><h3>06/12/2026</h3><p class="muted">Simulado 3 · Última avaliação</p></div><div class="day-card"><span class="badge fixed">PROVA</span><h3>13/12/2026</h3><p class="muted">SUS-SP</p></div></div>
+<div class="card"><h2>Rotina-base</h2><div class="checkline">📚 <span><b>SUS-SP · 2h30</b><br><span class="muted small">Teoria curta + questões + correção</span></span></div><div class="checkline">🧠 <span><b>Anki · 45 min</b><br><span class="muted small">Máximo de 120 revisões/dia</span></span></div><div class="checkline">🎓 <span><b>UWorld · 20 questões / ~1h30</b><br><span class="muted small">Resolver e revisar os erros</span></span></div><div class="checkline">🔁 <span><b>Revisão ativa · 30 min</b><br><span class="muted small">Recuperar conceitos e organizar pendências</span></span></div><p class="muted small">Em dia de simulado, ele substitui o bloco habitual de questões do SUS-SP.</p></div>
+</div>
+</section>
+<section id="conteudos" class="panel">
+<div class="section-title"><h2>Checklist dos conteúdos</h2><div class="row"><input id="searchTopics" placeholder="Buscar assunto..." style="padding:9px;border:1px solid #cbd5e1;border-radius:9px"><select id="filterStatus" style="padding:9px;border:1px solid #cbd5e1;border-radius:9px"><option value="all">Todos</option><option value="pending">Pendentes</option><option value="done">Concluídos</option></select></div></div>
+<p class="muted small">Marque um assunto após concluir a teoria curta e as questões. Os tópicos ficam salvos neste navegador.</p><div id="topicGroups"></div>
+</section>
+<section id="hoje" class="panel">
+<div class="card">
+<div class="section-title" style="margin-top:0"><h2>Plano do dia</h2><span class="badge" id="dayLabel">Dia normal</span></div>
+<div class="field"><label for="studyDate">Escolha a data</label><input type="date" id="studyDate" min="2026-10-16" max="2026-12-13" value="2026-10-16"></div>
+<div id="scheduledTopics" class="day-card"></div>
+<div class="checkline"><input type="checkbox" id="dailySUS"><label for="dailySUS"><b>SUS-SP</b> — teoria curta, questões e revisão dos erros</label></div>
+<div class="checkline"><input type="checkbox" id="dailyAnki"><label for="dailyAnki"><b>Anki</b> — até 120 revisões</label></div>
+<div class="checkline"><input type="checkbox" id="dailyUworld"><label for="dailyUworld"><b>UWorld</b> — 20 questões e revisão</label></div>
+<div class="checkline"><input type="checkbox" id="dailyReview"><label for="dailyReview"><b>Revisão ativa</b> — 30 minutos</label></div>
+<div class="field"><label for="dailyNotes">Notas / o que ficou pendente</label><textarea id="dailyNotes" placeholder="Ex.: revisar sepse; não terminei o tópico de nefrologia..."></textarea></div>
+<div class="row"><button class="btn" id="saveDay">Salvar dia</button><button class="btn secondary" id="clearDay">Desmarcar rotina</button></div>
+<p class="muted small" id="daySavedMsg"></p>
+</div>
+<div class="card" style="margin-top:14px"><h2>Reorganizar tarefas pendentes</h2><p class="muted">A ferramenta distribui os tópicos ainda não concluídos nos dias disponíveis a partir da data escolhida, sem alterar os simulados nem a prova. É uma sugestão de agenda; você pode editar a data ou marcar tópicos como concluídos.</p><div class="field"><label for="replanStart">Replanejar a partir de</label><input type="date" id="replanStart" min="2026-10-16" max="2026-12-12" value="2026-10-16"></div><button class="btn" id="replan">Reorganizar pendências</button><div id="replanResult"></div></div>
+</section>
+<section id="simulados" class="panel">
+<div class="card"><h2>Resultados dos simulados</h2><p class="muted">Registre o resultado e os temas que precisam de revisão. Os campos ficam salvos no navegador.</p><div id="mockForms"></div><button class="btn" id="saveMocks">Salvar resultados</button><p class="muted small" id="mockMsg"></p></div>
+</section>
+<section id="backup" class="panel">
+<div class="card"><h2>Backup dos seus dados</h2><p>Os dados ficam armazenados localmente neste navegador. Para não perder seu progresso, exporte um backup regularmente e antes de trocar de computador ou navegador.</p><div class="row"><button class="btn" id="exportData">Exportar backup JSON</button><label class="btn secondary" for="importFile" style="cursor:pointer">Importar backup</label><input class="hidden" type="file" id="importFile" accept=".json,application/json"></div><hr style="border:0;border-top:1px solid var(--line);margin:20px 0"><h3>Como funciona</h3><ul><li>Marcar um tópico atualiza os indicadores automaticamente.</li><li>O plano diário salva a rotina e as notas por data.</li><li>O replanejamento mantém fixos os simulados de 22/11, 29/11 e 06/12 e a prova de 13/12.</li><li>O arquivo HTML pode ser aberto offline no computador.</li></ul><p class="muted small">Atenção: o armazenamento do navegador pode ser apagado por limpeza de dados. Use o backup JSON para preservar as marcações.</p><button class="btn danger" id="resetAll">Apagar todos os dados locais</button></div>
+</section>
+<div class="footer">Plano pessoal de estudos · Sem conta ou servidor · Seus registros permanecem neste navegador, salvo se você exportar um backup.</div>
+</main>
+<script>
+const subjects=[
+{name:"Clínica Médica",start:1,topics:[
+"Síndrome coronariana aguda, dissecção de aorta e risco cardiovascular",
+"Hipertensão, insuficiência cardíaca, arritmias e parada cardiorrespiratória",
+"DPOC, asma, doenças intersticiais, derrame pleural e nódulo pulmonar",
+"Pneumonia, sepse e SARA","TEV, hemostasia, transfusão e emergências onco-hematológicas",
+"Anemias e microangiopatias trombóticas (PTT, PTI, SHU, CIVD)",
+"Diabetes: diagnóstico, tratamento, CAD/EHH e complicações crônicas",
+"Adrenal, tireoide, paratireoide e distúrbios hidroeletrolíticos",
+"Nefrologia e urologia: IRA, glomerulonefrites, ITU, litíase e tumores urológicos",
+"Cirrose, hepatites virais e hepatopatias","Neurologia: AVC/HSA, cefaleias, doenças neuromusculares, meningites e morte encefálica",
+"Infectologia: HIV, COVID/influenza, arboviroses, sífilis, leptospirose, raiva/tétano e tuberculose",
+"Reumatologia: espondiloartrites, LES, miopatias, artrites e vasculites",
+"Intoxicações exógenas, acidentes com animais e anafilaxia","Geriatria e cuidados paliativos","Saúde mental, RAPS, tabagismo e etilismo"]},
+{name:"Cirurgia",start:17,topics:[
+"Atendimento inicial ao trauma, via aérea, choque e trauma torácico","Trauma abdominal, TCE e trauma raquimedular",
+"Queimaduras, cicatrização, técnica cirúrgica e anestesia","Pré-operatório, resposta metabólica e nutrição cirúrgica",
+"Pós-operatório, complicações cirúrgicas e cirurgia bariátrica","Hemorragia digestiva alta e baixa, úlcera péptica e H. pylori",
+"Abdome agudo: perfurativo, obstrutivo, vascular, apendicite, diverticulite e cirurgia pediátrica",
+"Vias biliares, pâncreas e lesões hepáticas focais","Esôfago e estômago: DRGE, acalasia, câncer de esôfago e gástrico",
+"Câncer colorretal, doenças orificiais, DII e diarreias","Hérnias e doença arterial obstrutiva periférica"]},
+{name:"Ginecologia e Obstetrícia",start:28,topics:[
+"Hemorragias da primeira metade da gestação","Hemorragias da segunda metade, parto e puerpério",
+"Prematuridade, RPMO e estreptococo do grupo B","Síndromes hipertensivas e diabetes na gestação",
+"Pré-natal, diagnóstico e fisiologia da gestação","Gestação gemelar e vitalidade fetal",
+"Sífilis e toxoplasmose na gestação e sífilis congênita","Climatério, osteoporose e sangramento pós-menopausa",
+"Ciclo menstrual, amenorreia, SOP, endometriose e infertilidade","Anticoncepção e sangramento uterino anormal",
+"HPV, câncer de colo e câncer de vulva","Mama: doenças benignas, câncer e rastreamentos","Vulvovaginites, cervicites e DIP"]},
+{name:"Pediatria",start:41,topics:[
+"Imunizações","Puericultura, aleitamento, alergia à proteína do leite e desenvolvimento infantil",
+"Neonatologia: reanimação, desconforto respiratório, triagem e cuidados com RN","IVAS e otorrinolaringologia pediátrica",
+"Bronquiolite, coqueluche, sibilância e tuberculose na infância","PALS, convulsão, febre sem sinais localizatórios e ITU na criança",
+"Diarreia aguda, desidratação e parasitoses","Doenças exantemáticas e infecções de pele",
+"Puberdade precoce e tardia, baixa estatura e DDS",
+"Neurodesenvolvimento, saúde mental infantil, síndrome de Down e cardiopatias congênitas"]},
+{name:"Medicina Preventiva",start:51,topics:[
+"Princípios, história e organização do SUS","Atenção Primária à Saúde e população LGBTQIA+",
+"Epidemiologia: estudos, medidas de associação, testes e bioestatística","Vigilância epidemiológica e notificação",
+"Indicadores de saúde e declaração de óbito","Processo saúde-doença e níveis de prevenção",
+"Saúde do trabalhador","Ética médica e violência"]}];
+const topics=subjects.flatMap(s=>s.topics.map((name,i)=>({id:s.start+i,name,subject:s.name})));
+const mocks=[{date:"2026-11-22",name:"Simulado 1"},{date:"2026-11-29",name:"Simulado 2"},{date:"2026-12-06",name:"Simulado 3"}];
+const exam="2026-12-13", KEY="susSpStep1PlannerV1";
+let state={done:[],days:{},scores:[{},{},{}],replan:{}};
+function load(){try{const x=JSON.parse(localStorage.getItem(KEY)||"null");if(x)state={...state,...x}}catch(e){}}
+function persist(){localStorage.setItem(KEY,JSON.stringify(state));renderStats()}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function dateStr(d){return d.toISOString().slice(0,10)}
+function fmt(d){return new Date(d+"T12:00:00").toLocaleDateString("pt-BR")}
+function getDay(d){return state.days[d]||{sus:false,anki:false,uworld:false,review:false,notes:""}}
+function renderStats(){
+ const n=state.done.length,p=Math.round(n/topics.length*100);
+ document.getElementById("statTopics").textContent=`${n}/${topics.length}`;
+ document.getElementById("statPercent").textContent=p+"%";
+ document.getElementById("topicBar").style.width=p+"%";
+ const today=dateStr(new Date());const diff=Math.max(0,Math.ceil((new Date(exam+"T12:00:00")-new Date(today+"T12:00:00"))/86400000));
+ document.getElementById("statDays").textContent=diff;
+ const d=getDay(document.getElementById("studyDate").value);
+ document.getElementById("statRoutine").textContent=[d.sus,d.anki,d.uworld].filter(Boolean).length+"/3";
+ document.getElementById("subjectProgress").innerHTML=subjects.map(s=>{const ids=s.topics.map((_,i)=>s.start+i),nDone=ids.filter(id=>state.done.includes(id)).length,per=Math.round(nDone/ids.length*100);return `<div class="card" style="margin:9px 0;padding:13px 15px"><div class="row" style="justify-content:space-between"><b>${esc(s.name)}</b><span class="muted small">${nDone}/${ids.length} · ${per}%</span></div><div class="progress"><span style="width:${per}%"></span></div></div>`}).join("");
+}
+function renderTopics(){
+ const q=document.getElementById("searchTopics").value.toLowerCase(),filter=document.getElementById("filterStatus").value;
+ document.getElementById("topicGroups").innerHTML=subjects.map(s=>{
+ const items=s.topics.map((name,i)=>({id:s.start+i,name,subject:s.name})).filter(t=>(!q||(t.name+" "+t.subject).toLowerCase().includes(q))&&(filter==="all"||(filter==="done"?state.done.includes(t.id):!state.done.includes(t.id))));
+ if(!items.length)return "";
+ return `<div class="topic-group"><div class="group-head"><span>${esc(s.name)}</span><small>${s.topics.filter((_,i)=>state.done.includes(s.start+i)).length}/${s.topics.length} concluídos</small></div><div class="topic-list">${items.map(t=>`<label class="topic ${state.done.includes(t.id)?"done":""}"><input type="checkbox" data-topic="${t.id}" ${state.done.includes(t.id)?"checked":""}><span class="topic-name"><b>${t.id}.</b> ${esc(t.name)}</span></label>`).join("")}</div></div>`;
+ }).join("")||'<div class="empty">Nenhum tópico corresponde ao filtro.</div>';
+ document.querySelectorAll("[data-topic]").forEach(el=>el.addEventListener("change",()=>{const id=+el.dataset.topic;if(el.checked&&!state.done.includes(id))state.done.push(id);if(!el.checked)state.done=state.done.filter(x=>x!==id);persist();renderTopics()}));
+}
+function scheduleFor(date){
+ const d=new Date(date+"T12:00:00"),start=new Date("2026-10-16T12:00:00");
+ const offset=Math.max(0,Math.floor((d-start)/86400000));
+ const mock=mocks.find(m=>m.date===date);
+ if(date===exam)return {label:"PROVA",fixed:true,text:"Dia da prova SUS-SP. Não agendar conteúdo novo."};
+ if(mock)return {label:"SIMULADO",fixed:true,text:`${mock.name}. Faça o simulado e registre os erros na aba Simulados.`};
+ if(date>"2026-12-06")return {label:"RETA FINAL",fixed:false,text:"Revisão leve dos erros, descanso e preparação para a prova."};
+ if(date>="2026-11-14")return {label:"REVISÃO",fixed:false,text:"Revisão de erros, tópicos difíceis e questões mistas."};
+ const pair=topics.slice(offset*2,offset*2+2);
+ if(!pair.length)return {label:"RECUPERAÇÃO",fixed:false,text:"Use este dia para concluir pendências e revisar erros."};
+ return {label:"CONTEÚDO",fixed:false,text:pair.map(t=>`${t.id}. ${t.name}`).join(" · "),ids:pair.map(t=>t.id)};
+}
+function renderDay(){
+ const date=document.getElementById("studyDate").value||"2026-10-16",d=getDay(date),sch=state.replan[date]||scheduleFor(date);
+ document.getElementById("dayLabel").textContent=sch.label;
+ document.getElementById("scheduledTopics").innerHTML=`<b>${fmt(date)} · ${esc(sch.label)}</b><p>${esc(sch.text)}</p>${sch.ids?sch.ids.map(id=>{let t=topics.find(x=>x.id===id);return `<div class="checkline"><input type="checkbox" data-daytopic="${id}" ${state.done.includes(id)?"checked":""}><span>${id}. ${esc(t.name)}</span></div>`}).join(""):""}${sch.fixed?'<span class="badge fixed">DATA FIXA</span>':""}`;
+ ["sus","anki","uworld","review"].forEach(k=>document.getElementById("daily"+({sus:"SUS",anki:"Anki",uworld:"Uworld",review:"Review"}[k])).checked=!!d[k]);
+ document.getElementById("dailyNotes").value=d.notes||"";
+ document.getElementById("daySavedMsg").textContent="";
+ document.querySelectorAll("[data-daytopic]").forEach(el=>el.addEventListener("change",()=>{let id=+el.dataset.daytopic;if(el.checked&&!state.done.includes(id))state.done.push(id);if(!el.checked)state.done=state.done.filter(x=>x!==id);persist();renderDay();renderTopics()}));
+ renderStats();
+}
+function saveDay(){
+ const date=document.getElementById("studyDate").value;
+ state.days[date]={sus:document.getElementById("dailySUS").checked,anki:document.getElementById("dailyAnki").checked,uworld:document.getElementById("dailyUworld").checked,review:document.getElementById("dailyReview").checked,notes:document.getElementById("dailyNotes").value};
+ persist();document.getElementById("daySavedMsg").textContent="Dia salvo neste navegador.";renderStats();
+}
+function renderMocks(){
+ document.getElementById("mockForms").innerHTML=mocks.map((m,i)=>{const s=state.scores[i]||{};return `<div class="day-card"><h3>${m.name} · ${fmt(m.date)}</h3><div class="field"><label>Acertos / total ou percentual</label><input data-score="result" data-i="${i}" value="${esc(s.result||"")}" placeholder="Ex.: 72/100 ou 72%"></div><div class="field"><label>Temas com mais erros</label><textarea data-score="errors" data-i="${i}" placeholder="Anote os temas para revisar">${esc(s.errors||"")}</textarea></div></div>`}).join("");
+}
+function saveMocks(){mocks.forEach((m,i)=>{state.scores[i]=state.scores[i]||{};document.querySelectorAll(`[data-i="${i}"]`).forEach(el=>state.scores[i][el.dataset.score]=el.value)});persist();document.getElementById("mockMsg").textContent="Resultados salvos neste navegador."}
+function replan(){
+ const start=document.getElementById("replanStart").value,pend=topics.filter(t=>!state.done.includes(t.id));
+ let dates=[],d=new Date(start+"T12:00:00"),end=new Date("2026-12-06T12:00:00");
+ while(d<=end){const ds=dateStr(d);if(!mocks.some(m=>m.date===ds))dates.push(ds);d.setDate(d.getDate()+1)}
+ if(!dates.length){document.getElementById("replanResult").innerHTML='<p class="muted">Não há dias disponíveis antes do último simulado. Priorize revisão de erros e não tente colocar tudo na véspera.</p>';return}
+ const perDay=Math.max(1,Math.ceil(pend.length/dates.length));
+ dates.forEach((dt,i)=>{const arr=pend.slice(i*perDay,(i+1)*perDay);if(arr.length)state.replan[dt]={label:"PENDÊNCIAS REPLANEJADAS",fixed:false,ids:arr.map(t=>t.id),text:arr.map(t=>`${t.id}. ${t.name}`).join(" · ")}});
+ persist();
+ const assigned=dates.filter(dt=>state.replan[dt]?.label==="PENDÊNCIAS REPLANEJADAS").length;
+ document.getElementById("replanResult").innerHTML=`<div class="day-card"><b>Plano atualizado</b><p>${pend.length} tópicos pendentes distribuídos em ${assigned} dias disponíveis, a partir de ${fmt(start)}. Os simulados e a prova permanecem fixos.</p><p class="muted small">A distribuição pode ficar intensa se houver muitos tópicos pendentes. Revise a agenda diária e use as caixas de conclusão para atualizar o progresso.</p></div>`;
+}
+document.querySelectorAll(".nav button").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".nav button").forEach(x=>x.classList.toggle("active",x===b));document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("active",p.id===b.dataset.tab));}));
+document.getElementById("searchTopics").addEventListener("input",renderTopics);
+document.getElementById("filterStatus").addEventListener("change",renderTopics);
+document.getElementById("studyDate").addEventListener("change",renderDay);
+document.getElementById("saveDay").addEventListener("click",saveDay);
+document.getElementById("clearDay").addEventListener("click",()=>{["dailySUS","dailyAnki","dailyUworld","dailyReview"].forEach(id=>document.getElementById(id).checked=false);document.getElementById("dailyNotes").value="";saveDay()});
+document.getElementById("replan").addEventListener("click",replan);
+document.getElementById("saveMocks").addEventListener("click",saveMocks);
+document.getElementById("exportData").addEventListener("click",()=>{const blob=new Blob([JSON.stringify(state,null,2)],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="backup-sus-sp-step1.json";a.click();URL.revokeObjectURL(a.href)});
+document.getElementById("importFile").addEventListener("change",async e=>{const f=e.target.files[0];if(!f)return;try{const x=JSON.parse(await f.text());if(!x||!Array.isArray(x.done)||!x.days)throw Error();state={...state,...x};persist();renderTopics();renderDay();renderMocks();alert("Backup importado com sucesso.")}catch(err){alert("Não foi possível importar. Selecione um backup JSON exportado por este painel.")}e.target.value=""});
+document.getElementById("resetAll").addEventListener("click",()=>{if(confirm("Tem certeza? Isso apagará as marcações, notas e resultados salvos neste navegador.")){state={done:[],days:{},scores:[{},{},{}],replan:{}};persist();renderTopics();renderDay();renderMocks()}});
+load();renderStats();renderTopics();renderDay();renderMocks();
+</script>
+</body>
+</html>
